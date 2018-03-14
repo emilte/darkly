@@ -2,4 +2,4 @@
 
 - Nous le decryptons et nous voyons qu'il vaut 'false', nous affectons alors le hash md5 'true'.
 
-- Nous voila admin, une pop up apparait pour nous donner le flag.
+- Nous voila admin sur le site, une pop up apparait pour nous donner le flag.

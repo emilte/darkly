@@ -8,6 +8,6 @@
 `curl -X POST -H 'Content-Type: multipart/form-data' -F 'Upload=send' -F 'uploaded=@toto.php;type=image/jpeg' http://Iso_Adress_IP/index.php?page=upload#`
 
 - Le formulaire accepte uniquement les données de types multipart/form-data donc on set cette valeur dans le Content-Type,
-  ensuite on spécifie le fichier a envoyé en notifiant qu'il s'agit d'un fichier jpeg. On donne le nom du formulaire a viser et l'adresse de la requête.
+  ensuite on spécifie le fichier a envoyer en notifiant qu'il s'agit d'un fichier jpeg. On donne le nom du formulaire à viser et l'adresse de la requête.
 
-- Le curl nous renvoi le html et le flag s'y trouve.
+- curl nous renvoie le code html et le flag s'y trouve.

@@ -2,4 +2,4 @@
 
 - On remarque les balises 'option' des 'select' dont on peut modifier la valeur.
 
-- En entrant une valeur numérique differente des propositions, on obtient le flag.
+- En entrant une valeur numérique differente des propositions puis en selectionnant cette valeur dans le champ correspondant on obtient le flag.

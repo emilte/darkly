@@ -1,31 +1,31 @@
-const axios = require('ax')
-// const page = require('webpage').create()
-// const allPath = []
+const axios = require('axios')
+const fs = require('fs')
+const request = require('request')
+const cheerio = require('cheerio')
 
-// function getAllPath (_page) {
-//   return _page.evaluate(function() {
-//     return [].map.call(document.querySelectorAll('a'), function(link) {
-//     //  return link.getAttribute('href')
-//       const linkStr = link.getAttribute('href')
-      
-//       if (linkStr !== 'README') {
-//         console.log('87')
-//           // return _page.open(`${page.url}${linkStr}`, function() {
-//           // getAllPath(_page)
-//         // })
-//       }
-//       console.log('87')
-//       return 'toto'
-//     })
-//   })
-// }
+function readme() {
+  return axios({
+    method:'get',
+    url,
+    responseType:'stream'
+  })
+  .then((response) => {
+    response.data.pipe(process.stdout)
+    return Promise.resolve()
+  })
+  .catch((err) => console.error(err))
+}
 
-// page.open('http://172.16.106.131/.hidden/', function(status) {
-//   console.log("Status: " + status)
-//   if(status !== "success") phantom.exit(1)
+async function script (url) {
+  return request(url, function(err, resp, body){
+    const $ = cheerio.load(body);
+    const links = $('a')
+    
+    $(links).each((i, link) => {
+      if ($(link).attr('href') === 'README') await readme(url + 'README')
+      else if ($(link).attr('href') !== '../') return script(url + $(link).attr('href'))
+    })
+  })
+}
 
-//   const result = getAllPath(page)
-//   console.log(result.join('\n'))
-//   phantom.exit(0)
-// })
-
+script('http://172.16.106.132/.hidden/')

@@ -1,5 +1,18 @@
-!#/bin/bash
+#!~/.brew/bin/bash
 
-wget -r -np -l 0 -e robots=off http://192.168.172.132/.hidden/
-
-on peut surement ameliorer la commande pour ne recup que les fichiers README (flag -I ??)
+if [ -z "$1" ]
+then
+	echo "I need an IP address"
+else
+	cd scraped
+	#mkdir ./scraped ; cd ./scraped
+	#wget -np -r -A "README*" -nd -l 0 -e robots=off http://$1/.hidden/
+	index=`ls | grep README | wc -l`
+	readme="README."
+	while [ $index != 0 ]
+	do
+		str=$readme$index
+		cat $str | grep "flag"
+		index=$(($index-1))
+	done
+fi

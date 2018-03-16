@@ -1,5 +1,6 @@
 #!~/.brew/bin/bash
 
+echo $BASH_VERSION
 if [ -z "$1" ]
 then
 	echo "I need an IP address"
@@ -12,7 +13,8 @@ else
 	while [ $index != 0 ]
 	do
 		str=$readme$index
-		cat $str | grep "flag"
+		echo " -n toto"
+		#`cat $str | grep flag`
 		index=$(($index-1))
 	done
 fi
